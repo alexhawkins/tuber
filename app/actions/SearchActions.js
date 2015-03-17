@@ -1,6 +1,6 @@
 var AppDispatcher = require('../dispatcher/AppDispatcher');
 var AppConstants = require('../constants/AppConstants');
-var SearchUtils = require('../utils/SearchUtils');
+var searchYouTubeUtils = require('../utils/SearchYouTubeUtils');
 
 var callback = function(response) {
     console.log('RESPONSE', response);
@@ -11,14 +11,8 @@ var callback = function(response) {
 };
 
 var searchActions = {
-    getVideos: function(search) {
-        SearchUtils.getVideos(search, callback);
-    },
-    changeSearch: function(name) {
-        AppDispatcher.handleAction({
-            actionType: appConstants.CHANGE_SEARCH,
-            data: search
-        });
+    getVideos: function(query) {
+        searchYouTubeUtils.getVideos(query, callback);
     }
 };
 

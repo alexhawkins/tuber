@@ -17,11 +17,11 @@ var TableHeader = React.createClass({
         return (
             <thead>
                 <tr>
-                    <Image onSortBy={onSortBy} desc={desc.thumb_url_default} />
+                    <Image />
                     <Title onSortBy={onSortBy} desc={desc.title} />
                     <Views onSortBy={onSortBy} desc={desc.views} />
-                    <Created onSortBy={onSortBy} desc={desc.created_on} />
-                    <Id onSortBy={onSortBy} desc={desc.id} />
+                    <Created onSortBy={onSortBy} desc={desc.publishedAt} />
+                    <Id onSortBy={onSortBy} desc={desc.channelId} />
                 </tr>
             </thead>
         );

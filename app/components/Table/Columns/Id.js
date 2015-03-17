@@ -6,10 +6,9 @@ var Id = React.createClass({
         onSortBy: React.PropTypes.func.isRequired,
         desc: React.PropTypes.bool.isRequired
     },
-
     handleClick: function () {
         this.props.onSortBy(
-            'id', !this.props.desc
+            'channelId', !this.props.desc
         );
     },
     render: function() {

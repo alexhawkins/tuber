@@ -8,7 +8,7 @@ var Created = React.createClass({
     },
     handleClick: function () {
         this.props.onSortBy(
-            'created_on', !this.props.desc
+            'publishedAt', !this.props.desc
         );
     },
     render: function() {

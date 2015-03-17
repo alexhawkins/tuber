@@ -2,7 +2,7 @@ var React = require('react');
 var TableContainer = require('./Table/TableContainer');
 var Router = require('react-router');
 var RouteHandler = Router.RouteHandler;
-//var SearchBar = require('./SearchBar/SearchBar');
+var SearchBar = require('./SearchBar/SearchBar');
 
 var Main = React.createClass({
     render: function(){
@@ -10,7 +10,7 @@ var Main = React.createClass({
             <div className="main-container">
                 <nav className="navbar navbar-default" role="navigation">
                     <div className="col-sm-7 col-sm-offset-2 search-bar-padding">
-
+                        <SearchBar />
                     </div>
                 </nav>
 

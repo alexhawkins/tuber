@@ -6,7 +6,6 @@ var Title = React.createClass({
         onSortBy: React.PropTypes.func.isRequired,
         desc: React.PropTypes.bool.isRequired
     },
-
     handleClick: function () {
         this.props.onSortBy(
             'title', !this.props.desc
