@@ -5,9 +5,18 @@ var TableRow = require('./TableRow');
 
 var Table = React.createClass({
 
+    propTypes: {
+        onSortBy: React.PropTypes.func.isRequired,
+        videos: React.PropTypes.array.isRequired,
+        filterBarText: React.PropTypes.string.isRequired,
+        sortBy: React.PropTypes.string.isRequired,
+        newSort: React.PropTypes.bool.isRequired,
+        desc: React.PropTypes.object.isRequired
+    },
     handleSort: function(){
         var sortBy = this.props.sortBy;
-        this.props.videos.sort(function(y,x){
+        var videos = this.props.videos;
+        videos.sort(function(y,x){
             if (x[sortBy]> y[sortBy])
                 return 1;
             if (x[sortBy] < y[sortBy])
@@ -15,27 +24,34 @@ var Table = React.createClass({
             else
                 return 0;
         });
-        if(sortBy === 'title')
-            this.props.videos.reverse();
-        this.props.newSort = false;
-    },
 
+        this.props.newSort = false;
+        if(sortBy === 'title')
+            videos.reverse();
+        if(!this.props.desc[sortBy])
+            videos.reverse();
+    },
     render: function() {
         var tableRows = [];
+        var videos = this.props.videos;
+        var userInput = this.props.filterBarText;
 
         if(this.props.newSort) this.handleSort();
 
-        this.props.videos.forEach(function(video, index) {
+        videos.forEach(function(video, index) {
             var title = video.title.toLowerCase().replace(/[@"\W|_"]+/g, '');
-            var filterText = this.props.filterBarText.toLowerCase();
+            var filterText = userInput.toLowerCase();
             if(title.indexOf(filterText) === -1)
                 return;
             tableRows.push(<TableRow video={video} key={index} />);
         }.bind(this));
 
         return (
-            <table>
-                <TableHeader onSortBy={this.props.onSortBy} />
+            <table className="table">
+                <TableHeader
+                    onSortBy={this.props.onSortBy}
+                    desc={this.props.desc}
+                />
                 <tbody>{tableRows}</tbody>
             </table>
         );

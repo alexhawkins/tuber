@@ -4,20 +4,25 @@ var moment = require('moment');
 
 var TableRow = React.createClass({
 
+    propTypes: {
+        video: React.PropTypes.object.isRequired
+    },
     render: function() {
+        var video = this.props.video;
         var youTubeURL = "https://www.youtube.com/channel/";
-        var img = <img src={this.props.video.thumb_url_default}/>;
-        var title = <a href={youTubeURL + this.props.video.title}>{this.props.video.title}</a>;
-        var views = <span>{helpers.abbrNum(this.props.video.views, 2)}</span>;
-        var date = <span>{moment(this.props.video.created_on).fromNow()}</span>;
-        var id = <span>{this.props.video.id}</span>;
+        var imgURL = video.thumb_url_default;
+        var title = video.title;
+        var views = helpers.abbrNum(video.views, 2);
+        var id = video.id;
+        var link =  youTubeURL + id;
+        var date = moment(video.created_on).fromNow();
 
         return (
             <tr>
-                <td>{img}</td>
-                <td>{title}</td>
-                <td>{views}</td>
-                <td>{date}</td>
+                <td><a href={link}><img className="img-thumbnail" src={imgURL}/></a></td>
+                <td className="bold-title"><a href={link}>{title}</a></td>
+                <td className="bold-title">{views}</td>
+                <td className="italic-title">{date}</td>
                 <td>{id}</td>
             </tr>
         );

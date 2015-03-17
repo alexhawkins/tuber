@@ -8,7 +8,14 @@ var TableContainer = React.createClass({
         return {
             filterBarText: '',
             sortBy: 'title',
-            newSort: true
+            newSort: true,
+            desc: {
+                id: true,
+                title: true,
+                views: true,
+                created_on: true,
+                thumb_url_default: true,
+            }
         };
     },
     handleFilterInput: function(text) {
@@ -16,7 +23,8 @@ var TableContainer = React.createClass({
             filterBarText: text
         });
     },
-    handleSorting: function(option) {
+    handleSorting: function(option, sortOrder) {
+        this.state.desc[option] = sortOrder;
         this.setState({
             sortBy: option,
             newSort: true
@@ -24,18 +32,22 @@ var TableContainer = React.createClass({
     },
     render: function() {
         return (
-            <div>
-                <TableFilterBar
-                    filterBarText={this.state.filterBarText}
-                    onFilterInput={this.handleFilterInput}
-                />
+            <div className="panel panel-default">
+                <div className="panel-heading">
+                    <TableFilterBar
+                        filterBarText={this.state.filterBarText}
+                        onFilterInput={this.handleFilterInput}
+                    />
+                </div>
                 <Table
                     videos={DATA}
                     filterBarText={this.state.filterBarText}
                     sortBy={this.state.sortBy}
                     newSort={this.state.newSort}
                     onSortBy={this.handleSorting}
+                    desc={this.state.desc}
                 />
+            <div className="panel-footer">&copy; Alex Hawkins &mdash; 2015</div>
             </div>
         );
     }
