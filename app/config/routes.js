@@ -8,9 +8,9 @@ var TableContainer = require('../components/Table/TableContainer.js');
 //var SearchResults = require('../components/SearchResults');
 
 var routes = (
-	<Route name="app" path="/" handler={Main}>
+    <Route name="app" path="/" handler={Main}>
     <DefaultRoute handler={TableContainer} />
-	</Route>
+    </Route>
 );
 
 module.exports = routes;
