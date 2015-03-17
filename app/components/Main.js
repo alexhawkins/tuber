@@ -6,23 +6,23 @@ var RouteHandler = Router.RouteHandler;
 //var Footer = require('./Footer');
 
 var Main = React.createClass({
-	render: function(){
-		return (
-			<div className="main-container">
+    render: function(){
+        return (
+            <div className="main-container">
 
-				<nav className="navbar navbar-default" role="navigation">
-					<div className="col-sm-7 col-sm-offset-2 search-bar-padding">
+                <nav className="navbar navbar-default" role="navigation">
+                    <div className="col-sm-7 col-sm-offset-2 search-bar-padding">
 
-					</div>
-				</nav>
+                    </div>
+                </nav>
 
-				<div className="container">
-					<RouteHandler/>
-				</div>
+                <div className="container">
+                    <RouteHandler/>
+                </div>
 
-			</div>
-		);
-	}
+            </div>
+        );
+    }
 });
 
 module.exports = Main;
