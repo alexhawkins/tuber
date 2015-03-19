@@ -1,6 +1,6 @@
-var React = require('react');
-var TableHeader = require('./TableHeader');
-var TableRow = require('./TableRow');
+var React = require("react");
+var TableHeader = require("./TableHeader");
+var TableRow = require("./TableRow");
 
 var Table = React.createClass({
 
@@ -9,7 +9,7 @@ var Table = React.createClass({
         filterBarText: React.PropTypes.string.isRequired,
         sortBy: React.PropTypes.string.isRequired,
         newSort: React.PropTypes.bool.isRequired,
-        desc: React.PropTypes.object.isRequired,
+        orderByDesc: React.PropTypes.object.isRequired,
         videos: React.PropTypes.array.isRequired
     },
 
@@ -19,7 +19,6 @@ var Table = React.createClass({
         videos.sort(function(y,x){
             y = y.snippet;
             x = x.snippet;
-            console.log(x[sortBy]);
             if (x[sortBy] > y[sortBy])
                 return 1;
             if (x[sortBy] < y[sortBy])
@@ -28,9 +27,9 @@ var Table = React.createClass({
                 return 0;
         });
         this.props.newSort = false;
-        if(sortBy === 'title')
+        if(sortBy === "title")
             videos.reverse();
-        if(!this.props.desc[sortBy])
+        if(!this.props.orderByDesc[sortBy])
             videos.reverse();
     },
 
@@ -39,7 +38,7 @@ var Table = React.createClass({
         return videos.map(function(video, index) {
             video = video.snippet;
             var title = video.title;
-            var newTitle = title.toLowerCase().replace(/[@"\W|_"]+/g, '');
+            var newTitle = title.toLowerCase().replace(/[@"\W|_"]+/g, "");
             var filterText = userInput.toLowerCase();
             if(newTitle.indexOf(filterText) !== -1)
                 return (<TableRow title={title} video={video} key={index} />);
@@ -57,7 +56,7 @@ var Table = React.createClass({
             <table className="table">
                 <TableHeader
                     onSortBy={this.props.onSortBy}
-                    desc={this.props.desc}
+                    orderByDesc={this.props.orderByDesc}
                 />
                 <tbody>{tableRows}</tbody>
             </table>

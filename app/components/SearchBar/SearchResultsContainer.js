@@ -1,6 +1,6 @@
-var React = require('react');
-var Router = require('react-router');
-var TableContainer = require('../Table/TableContainer');
+var React = require("react");
+var Router = require("react-router");
+var TableContainer = require("../Table/TableContainer");
 
 var SearchResultsContainer = React.createClass({
     mixins: [Router.State],

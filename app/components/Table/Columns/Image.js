@@ -1,7 +1,8 @@
-var React = require('react');
-var classNames = require('classnames');
+var React = require("react");
+var classNames = require("classnames");
 
 var Image = React.createClass({
+
     render: function() {
         return (
             <th>Image</th>

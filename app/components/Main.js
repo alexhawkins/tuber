@@ -1,10 +1,11 @@
-var React = require('react');
-var TableContainer = require('./Table/TableContainer');
-var Router = require('react-router');
+var React = require("react");
+var TableContainer = require("./Table/TableContainer");
+var Router = require("react-router");
 var RouteHandler = Router.RouteHandler;
-var SearchBar = require('./SearchBar/SearchBar');
+var SearchBar = require("./SearchBar/SearchBar");
 
 var Main = React.createClass({
+
     render: function(){
         return (
             <div className="main-container">
@@ -13,7 +14,6 @@ var Main = React.createClass({
                         <SearchBar />
                     </div>
                 </nav>
-
                 <div className="container">
                     <div className="intro-title">Can't find a video to watch?
                         <span className="main-title">
@@ -22,7 +22,6 @@ var Main = React.createClass({
                     </div>
                     <RouteHandler/>
                 </div>
-
             </div>
         );
     }

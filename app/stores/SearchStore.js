@@ -1,17 +1,27 @@
-var AppDispatcher = require('../dispatcher/AppDispatcher');
-var appConstants = require('../constants/AppConstants');
-var objectAssign = require('react/lib/Object.assign');
-var EventEmitter = require('events')
+var AppDispatcher = require("../dispatcher/AppDispatcher");
+var appConstants = require("../constants/AppConstants");
+var objectAssign = require("react/lib/Object.assign");
+var EventEmitter = require("events")
     .EventEmitter;
 
-var CHANGE_EVENT = 'change';
+var CHANGE_EVENT = "change";
 
 var _state = {
     videos: []
+
 };
 
-var setVideos = function(data) {
+var setVideos = function(data){
     _state.videos = data;
+    console.log(data);
+};
+
+var setViews = function(data, setVideos) {
+    data.forEach(function(obj){
+        viewCount = (Math.floor(Math.random() * 5000000) + 10000);
+        obj.snippet.views = viewCount;
+    });
+    setVideos(data);
 };
 
 var searchStore = objectAssign({}, EventEmitter.prototype, {
@@ -30,7 +40,7 @@ AppDispatcher.register(function(payload) {
     var action = payload.action;
     switch (action.actionType) {
         case appConstants.GET_VIDEOS:
-            setVideos(action.data);
+            setViews(action.data, setVideos);
             searchStore.emit(CHANGE_EVENT);
             break;
         default:
