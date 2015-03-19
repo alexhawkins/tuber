@@ -1,8 +1,8 @@
 var React = require("react");
-var TableFilterBar = require("./TableFilterBar");
-var Table = require("./Table");
 var searchStore = require("../../stores/SearchStore");
 var searchActions = require("../../actions/SearchActions");
+var TableFilterBar = require("./TableFilterBar");
+var Table = require("./Table");
 
 var TableContainer = React.createClass({
 
@@ -58,7 +58,7 @@ var TableContainer = React.createClass({
 
     render: function() {
         return (
-            <div className="panel panel-default">
+            <div id="/#top" className="panel panel-default">
                 <div className="panel-heading">
                     <TableFilterBar
                         filterBarText={this.state.filterBarText}
@@ -73,7 +73,13 @@ var TableContainer = React.createClass({
                     onSortBy={this.handleSorting}
                     orderByDesc={this.state.orderByDesc.snippet}
                 />
-                <div className="panel-footer">&copy; Alex Hawkins &mdash; 2015</div>
+                <div className="panel-footer text-center">
+                    <a href ="#/#top" >
+                        <div className="btn btn-default back-to-top">
+                            Back To Top
+                        </div>
+                    </a>
+                </div>
             </div>
         );
     }

@@ -8,7 +8,6 @@ var CHANGE_EVENT = "change";
 
 var _state = {
     videos: []
-
 };
 
 var setVideos = function(data){

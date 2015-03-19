@@ -19,7 +19,7 @@ var TableFilterBar = React.createClass({
                 <input
                     className="form-control"
                     type="text"
-                    placeholder="Filter by title..."
+                    placeholder="Filter videos by title..."
                     ref="filterBarText"
                     value={this.props.filterBarText}
                     onChange={this.handleChange}
