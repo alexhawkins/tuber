@@ -1,8 +1,8 @@
 var React = require("react");
-var TableContainer = require("./Table/TableContainer");
 var Router = require("react-router");
 var RouteHandler = Router.RouteHandler;
 var SearchBar = require("./SearchBar/SearchBar");
+var TableContainer = require("./Table/TableContainer");
 
 var Main = React.createClass({
 
@@ -22,6 +22,7 @@ var Main = React.createClass({
                     </div>
                     <RouteHandler/>
                 </div>
+                <span className="invisible-text">&copy; Alex Hawkins &mdash; 2015</span>
             </div>
         );
     }
