@@ -17,10 +17,9 @@
   * run ```npm install```
   * run ```webpack -w``` to build and watch
   * run ```webpack-dev-server``` to run app locally.
-  * got to ```http://localhost:8080/public```
+  * go to ```http://localhost:8080/public```
 
 For reference the final folder structure should look something like this:
-
 
 ###Code Architecture
 
