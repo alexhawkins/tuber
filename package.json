@@ -1,24 +1,31 @@
 {
-  "name": "tuber",
+  "name": "frontend-programming-assignment",
   "version": "1.0.0",
-  "description": "",
-  "main": "webpack.config.js",
+  "description": "A YouTube Search engine built with React/Flux",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/alexhawkins/tuber.git"
+    "url": "https://github.com/alexhawkins/frontend-programming-assignment.git"
   },
-  "author": "",
+  "keywords": [
+    "react",
+    "flux",
+    "youtube",
+    "bootstrap",
+    "angular",
+    "sucks"
+  ],
+  "author": "Alex Hawkins 2015",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/alexhawkins/tuber/issues"
+    "url": "https://github.com/alexhawkins/frontend-programming-assignment/issues"
   },
-  "homepage": "https://github.com/alexhawkins/tuber",
+  "homepage": "https://github.com/alexhawkins/frontend-programming-assignment",
   "dependencies": {
     "babel": "^4.7.12",
-    "bootstrap": "^3.3.2",
     "classnames": "^1.1.4",
     "events": "^1.0.2",
     "flux": "^2.0.1",
